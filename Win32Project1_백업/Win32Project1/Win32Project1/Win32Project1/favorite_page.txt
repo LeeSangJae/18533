@@ -1,0 +1,5 @@
+www.nexon.co.kr@50001
+www.daum.net@50002
+www.yahoo.com@50003
+52.192.132.151@50004
+www.bombyul.com@50005

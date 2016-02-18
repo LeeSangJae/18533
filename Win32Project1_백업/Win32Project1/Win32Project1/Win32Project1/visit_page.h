@@ -13,8 +13,8 @@ void Search_visit_page() {
 	int listsize = 0;
 	end = vector_all_page.size();
 	std::string result = "<방문 페이지 목록>\n";
-	char * temp;
-	int get_size;
+	char * temp = NULL;
+	int get_size = 0;
 	
 	
 	if (end == 0) {
@@ -106,6 +106,12 @@ void back_button_page(char * page)
 		MessageBox(NULL, "마지막 페이지입니다!!", "에러!", MB_ICONINFORMATION);
 	}
 	else {
+		if (hwndStatic != NULL) {
+			DestroyWindow(hwndStatic);
+			hwndStatic = NULL;
+			temp_port2 = 0;			
+		}
+		image_file_name = NULL;
 		input_valid_check(temp_before);
 		temp = const_cast<char*>(temp_before.c_str());
 		before_page = new char[strlen(temp)];
@@ -137,6 +143,13 @@ void front_button_page(char * page)
 		lastindex++;
 	else
 		is_button_clicked = 0;
+
+	if (hwndStatic != NULL) {
+		DestroyWindow(hwndStatic);
+		hwndStatic = NULL;
+		temp_port2 = 0;
+	}
+	image_file_name = NULL;
 	input_valid_check(temp_front);
 	//vector<string>::reverse_iterator it = find(vector_page.rbegin(), vector_page.rend(), page);
 	//cout <<*it << endl;

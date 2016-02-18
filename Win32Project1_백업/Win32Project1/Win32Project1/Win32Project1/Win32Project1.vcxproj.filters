@@ -26,9 +26,6 @@
     <ClInclude Include="parser.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Bitmap.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -39,6 +36,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="hyperlink.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Bitmap.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

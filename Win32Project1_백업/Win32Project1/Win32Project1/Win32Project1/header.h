@@ -30,11 +30,12 @@ using namespace Gdiplus;
 
 
 //#define PORT_NUM 8979 //CGI PORT NUMBER 경미님
-#define PORT_NUM 8677 //CGI PORT NUMBER 효근님
+//#define PORT_NUM 8677 //CGI PORT NUMBER 효근님
 //#define PORT_NUM 8090 //CGI PORT NUMBER 재민님
 //#define PORT_NUM 8777 //CGI PORT NUMBER 효범님
 //#define PORT_NUM 8887 // 유민님
 #define MAXLEN 1024
+#define TEMP_SIZE 1000000
 //#define RBUFSIZE 1000000
 #define IDC_MAIN_BUTTON 101
 #define IDC_VISITPAGE_BUTTON 103 //다운로드 버튼
@@ -81,15 +82,18 @@ HWND favorite_button; //즐겨찾기 버튼
 
 HINSTANCE g_hInst; /* for progress bar*/
 char textbox_buffer[256];
+char temp_addr2[20];
+int temp_port2 = 0;
+
 
 char *cgi_addr = "52.192.132.151";
 char *local_addr = "127.0.0.1";
 
-char *dns_query_addr;
+char *dns_query_addr = NULL;
 
-long bufsize; //동적 할당을 위해 사이즈를 누적해 나감
-char rbuf[MAXLEN+1];
-char temp[1000000]; //임시로 값을 저장할 배열 큰 크기 할당.
+long bufsize = 0; //동적 할당을 위해 사이즈를 누적해 나감
+char rbuf[MAXLEN];
+char temp[TEMP_SIZE]; //임시로 값을 저장할 배열 큰 크기 할당.
 
 
 int clientsocket(char *, int);
@@ -99,7 +103,7 @@ int cases = 0;
 
 std::vector<string> vector_page;
 std::vector<string> vector_all_page;//모든 방문했던 페이지
-char *totalresult;
+char *totalresult = NULL;
 
 HMENU hMenu = CreateMenu(), hPopup = CreatePopupMenu(); //메뉴를 전역에서 생성해놓고 추가함
 int visit_pagenumber = 50001; //즐겨찾기 버튼 넘버
@@ -109,7 +113,7 @@ int __cdecl dns(char *hostname)
 	//-----------------------------------------
 	// Declare and initialize variables
 	WSADATA wsaData;
-	int iResult;
+	int iResult = 0;
 	INT iRetval;
 
 	DWORD dwRetval;

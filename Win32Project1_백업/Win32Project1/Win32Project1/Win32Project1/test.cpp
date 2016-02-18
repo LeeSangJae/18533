@@ -28,7 +28,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 	
 	RegisterClass(&WndClass);
 	// WS_HSCROLL , WS_VSCROLL 스크롤바 추가
-	Main_hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW | WS_HSCROLL | WS_VSCROLL , CW_USEDEFAULT, CW_USEDEFAULT, 1000, 1000, NULL, (HMENU)NULL, hInstance, NULL);
+	Main_hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW | WS_HSCROLL | WS_VSCROLL , CW_USEDEFAULT, CW_USEDEFAULT, 1024, 768, NULL, (HMENU)NULL, hInstance, NULL);
 	
 	ShowWindow(Main_hWnd, nCmdShow);
 	UpdateWindow(Main_hWnd);
@@ -44,17 +44,17 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 } // WinMain
 
 /*for Scroll bar*/
-int xPos, yPos;
-int yMax, xMax;
+int xPos = 0, yPos = 0;
+int yMax = 0, xMax = 0;
 /*End Sb */
 
 /* for Wheel Scroll*/
-int SumDelta;
-int WheelUnit;
-int original_position = 0;
+int SumDelta = 0;
+int WheelUnit = 0;
 /* END WS*/
 
-int Pos;
+int Pos = 0;
+
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
@@ -62,7 +62,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	WinProc_sub = hWnd;
 	PAINTSTRUCT ps;
 	HGDIOBJ hfDefault;
-	RECT rt = { 100,100,1000,1000 };
+	RECT rt;
+	RECT rt2;
 	static char str[256];
 	int xlnc, ylnc;
 	int Lines;
@@ -71,11 +72,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	/* 하단 상태바 부분 */
 	int SBPart[4];
 	RECT prt;	
+	SCROLLINFO si;
 
 	/* 플로팅 팝업 메뉴 부분 */
 	static COLORREF Color = RGB(255, 0, 0);
-	HBRUSH hBrush;
-	RECT crt;
 	BOOLEAN delresult;
 
 	switch (iMessage) {
@@ -105,8 +105,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		/* 스크롤바 부분 시작*/
 		xPos = 0;
 		yPos = 0;
-		xMax = 1000;
-		yMax = 1000;
+		xMax = 1024;
+		yMax = 768;
 		SetScrollRange(hWnd, SB_VERT, 0, yMax, TRUE);
 		SetScrollPos(hWnd, SB_VERT, 0, TRUE);
 		SetScrollRange(hWnd, SB_HORZ, 0, xMax, TRUE);
@@ -181,31 +181,23 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	case WM_CONTEXTMENU:
 		hMenu = LoadMenu(g_hInst, MAKEINTRESOURCE(IDR_MENU1));
 		hPopup = GetSubMenu(hMenu, 0);
-
 		TrackPopupMenu(hPopup, TPM_LEFTALIGN, (short)LOWORD(lParam), (short)HIWORD(lParam), 0, hWnd, NULL);
 		DestroyMenu(hMenu);
 		break;
 		
 	case WM_LBUTTONDOWN:
+		
+
 		//BitBlt(GetDC(hWnd), 0, 0, 1000, 1000, 0, 0, 0, WHITENESS); //그냥 화면을 하얗게만 할 뿐 뒤에 남아있음
 		//image_hyperlink_maker(WinProc_sub, "www.daum.net");
 		break;
 
 	case WM_SIZE:
 		SendMessage(hState, WM_SIZE, wParam, lParam);
-		MoveWindow(hList, 0, 0, LOWORD(lParam), HIWORD(lParam), TRUE);//디렉터리 탐색창
+		/* 스크롤바 부분 */
 		break;
 
 	case WM_COMMAND:
-		if ((HWND)lParam == hwndStatic) {
-			//ShellExecute(Main_hWnd, "open", "www.naver.com", 0, 0, 0);
-			cases = 2; //케이스 2번으로 하고 해야 계속해서 링크를 통해 이미지를 받아올 수 있음
-			clientsocket(textbox_buffer, PORT_NUM); //cases = 2이기 때문에 그냥 바로 요청하면 된다.
-			//input_valid_check(textbox_buffer); // 주소체크하고 dns 실행할지말지 결정
-			InvalidateRect(Main_hWnd, NULL, WM_ERASEBKGND);
-			UpdateWindow(Main_hWnd);
-		}
-
 		switch (LOWORD(wParam)) {
 		case 50001:	favorite_clicked(50001);break; case 50002: favorite_clicked(50002);break; case 50003: favorite_clicked(50003);break;
 		case 50004:	favorite_clicked(50004);break; case 50005: favorite_clicked(50005);break; case 50006: favorite_clicked(50006);break;
@@ -214,9 +206,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		case IDC_MAIN_BUTTON: // when button is clicked, this will happen: 버튼부분
 			SendMessage(EdittextBox, WM_GETTEXT, sizeof(textbox_buffer) / sizeof(textbox_buffer[0]), reinterpret_cast<LPARAM>(textbox_buffer));
-			image_file_name = NULL;
-			Save_visit_page(textbox_buffer);
-			input_valid_check(textbox_buffer); // 주소체크하고 dns 실행할지말지 결정
+			if(input_valid_check(textbox_buffer) == 1) // 주소체크하고 dns 실행할지말지 결정
+				Save_visit_page(textbox_buffer);
 			InvalidateRect(Main_hWnd, NULL, WM_ERASEBKGND);
 			UpdateWindow(Main_hWnd);
 			break;
@@ -261,7 +252,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 			
 			break;
 		case ID_FILE_40004: //삭제
-			delresult = DeleteFile("lenna.bmp"); //현재 미구현 디폴트상황
+			delresult = DeleteFile(image_file_name); //현재 미구현 디폴트상황
 			if(delresult == TRUE)
 				MessageBox(NULL, "파일삭제 성공!", "파일삭제!", MB_ICONINFORMATION);
 			else
@@ -273,6 +264,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		case ID_FILE_PROPERTY: //속성
 			
 			break;
+		}
+
+		if ((HWND)lParam == hwndStatic) {
+			cases = 2; //케이스 2번으로 하고 해야 계속해서 링크를 통해 이미지를 받아올 수 있음
+			clientsocket(temp_addr2, temp_port2); //cases = 2이기 때문에 그냥 바로 요청하면 된다.
+			InvalidateRect(Main_hWnd, NULL, TRUE);
+			UpdateWindow(Main_hWnd);
 		}
 		break;
 		/*
@@ -286,11 +284,18 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 	case WM_PAINT: //사용자로부터 입력받은 것을 화면에 뿌려줌
 		hdc = BeginPaint(hWnd, &ps);
-		DrawText(hdc, totalresult, -1, &rt, DT_CENTER | DT_WORDBREAK | DT_NOCLIP);
-		Draw_Image(hdc, image_file_name, 300, 300);
+		si.cbSize = sizeof(SCROLLINFO);
+		si.fMask = SIF_POS;
+		GetScrollInfo(hWnd, SB_VERT, &si);
+		rt2 = { 10-xPos,50-yPos,300,100 };
+		DrawText(hdc, hypertext, -1, &rt2, DT_WORDBREAK | DT_NOCLIP);
+		//for (i = 0; i < 1024; i += 50) {
+			rt = { 100-xPos,100-yPos,1024,768 }; //for문 안돌려도 된다.
+			DrawText(hdc, totalresult, -1, &rt, DT_CENTER | DT_WORDBREAK | DT_NOCLIP);
+		//}
+		Draw_Image(hdc, image_file_name, 100 - xPos+200, 100 - yPos+200);
 		SendMessage(hState, SB_SETTEXT, 1, (LPARAM)image_file_name); //하단 상태바에 받은 이미지 파일 이름 출력
 		EndPaint(hWnd, &ps);
-		SendMessage(hwndStatic, WM_ENABLE | WM_ERASEBKGND | WM_DESTROY, NULL, 1);
 		break;
 		
 
@@ -300,12 +305,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		while (abs(SumDelta) >= WheelUnit) {
 			if (SumDelta > 0) {
 				nScroll--;
-				original_position--;
 				SumDelta -= WheelUnit;
 			}
 			else { //스크롤바 내려갈때
 				nScroll++;
-				original_position++;
 				SumDelta += WheelUnit;
 			}
 		}
@@ -319,10 +322,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 				nScroll++;
 			}
 		}
-		if (original_position == 0) {
-			InvalidateRect(Main_hWnd, NULL, TRUE);
-			UpdateWindow(Main_hWnd);
-		}
+
 		break;
 
 	case WM_HSCROLL: //가로스크롤
@@ -344,8 +344,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 			xlnc = HIWORD(wParam) - xPos;
 			break;
 		default:
-			InvalidateRect(Main_hWnd, NULL, TRUE);
-			UpdateWindow(Main_hWnd);
+			//InvalidateRect(Main_hWnd, NULL, TRUE);
+			//UpdateWindow(Main_hWnd);
 			break;
 		}
 		//새로운 위치는 최소한 0 이상
@@ -380,8 +380,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 			ylnc = HIWORD(wParam) - yPos;
 			break;
 		default:
-			InvalidateRect(Main_hWnd, NULL, TRUE);
-			UpdateWindow(Main_hWnd);
+			//InvalidateRect(Main_hWnd, NULL, TRUE);
+			//UpdateWindow(Main_hWnd);
 			break;
 		}
 		//새로운 위치는 최소한 0 이상
@@ -395,6 +395,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		//스크롤 시키고 썸 위치를 다시 계산한다.
 		ScrollWindow(hWnd, 0, -ylnc, NULL, NULL);
 		SetScrollPos(hWnd, SB_VERT, yPos, TRUE);
+		MoveWindow(hState, xPos, yPos, LOWORD(lParam), HIWORD(lParam), TRUE); //하단 상태바 이동
 		break;
 
 	case WM_DESTROY:
@@ -424,9 +425,8 @@ LRESULT CALLBACK SubEditProc(HWND hWnd, UINT message, WPARAM wparam, LPARAM lpar
 		if (wparam == VK_RETURN)
 		{
 			SendMessage(EdittextBox, WM_GETTEXT, sizeof(textbox_buffer) / sizeof(textbox_buffer[0]), reinterpret_cast<LPARAM>(textbox_buffer));
-			image_file_name = NULL;
-			Save_visit_page(textbox_buffer);
-			input_valid_check(textbox_buffer); // 주소체크하고 dns 실행할지말지 결정
+			if (input_valid_check(textbox_buffer) == 1) // 주소체크하고 dns 실행할지말지 결정
+				Save_visit_page(textbox_buffer);
 			InvalidateRect(Main_hWnd, NULL, TRUE);
 			UpdateWindow(Main_hWnd);
 		}
@@ -457,7 +457,8 @@ int clientsocket(char * addrs, int portnum)
 	addr.sin_family = AF_INET;
 	addr.sin_addr.s_addr = inet_addr(addrs); //서버 주소 string으로 입력
 	addr.sin_port = htons(portnum); //포트번호 입력
-	int recvTimeout = 3000;  // 3초.
+
+	int recvTimeout = 5000;  // 3초.
 	if (setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, (char*)&recvTimeout, sizeof(recvTimeout)) != 0)
 		return -1;
 	
@@ -476,34 +477,42 @@ int clientsocket(char * addrs, int portnum)
 	}
 	else if (cases == 1) {
 		printf("CGI.... GO!!\n");
-		//p_get = "GET /index2.html HTTP/1.1\r\n\r\n"; //재민님
-		p_get = "GET / HTTP/1.1\r\n\r\n"; //효근님
+		if (temp_port2 == 8677)
+			p_get = "GET / HTTP/1.1\r\n\r\n"; //효근님
+		else if(temp_port2 == 8090)
+			p_get = "GET /index2.html HTTP/1.1\r\n\r\n"; //재민님
+		else if(temp_port2 == 8979)
+			p_get = "GET /pic.html HTTP/1.1\r\n\r\n"; //경미님
+
 		//p_get = "GET /hello.html HTTP/1.1\r\n\r\n"; //효범님
-		//p_get = "GET /pic.html HTTP/1.1\r\n\r\n"; //경미님
 		//p_get = "GET /home/ismean21/webserver/webServer_singleThread/calendar.html HTTP/1.1\r\n\r\n"; //유민님
 	}
 
 	if (cases == 2) {//jpg request message
-		printf("query_jpg_real : %s \n", query_jpg_real);
+		//printf("query_jpg_real : %s \n", query_jpg_real);
 		//p_get = "GET /cup.bmp HTTP/1.1\r\n\r\n";
 		send(sockfd, query_jpg_real, strlen(query_jpg_real) + 1, 0); //여기서 메시지 요청하고
 		recv(sockfd, rbuf, MAXLEN, 0);
-		printf("%s", rbuf);
-		/*경미님*/
-		//recv(sockfd, rbuf, 44, 0);
 		//printf("%s", rbuf);
+		/*경미님*/
+		if (temp_port2 == 8979) {
+			recv(sockfd, rbuf, 44, 0);
+			printf("%s", rbuf);
+		}
 
 		printf("GET IMAGE.... GO!!\n");
-		fp = fopen(image_file_name, "wb"); //rb로 해야함
+		if(fp==NULL)
+			fp = fopen(image_file_name, "wb"); //rb로 해야함
 	}
 	else {
 		send(sockfd, p_get, strlen(p_get) + 1, 0); //여기서 메시지 요청하고
 	}
 
 	int Pos = 0;
-
+	memset(temp, 0x00, TEMP_SIZE);
+	//temp = (char*)malloc(MAXLEN*sizeof(char));
 	while (1) { //여기서 받는다.
-		memset(rbuf, 0x00, MAXLEN + 1);
+		memset(rbuf, 0x00, MAXLEN);
 		str_len = recv(sockfd, rbuf, MAXLEN, 0); //NULL이 아닐 때까지 여기서 계속 서버로부터 메시지 일단 받음
 		Pos += 5;
 		if(Pos<80) //여기서는 끝까지 보여주지 않음 
@@ -515,11 +524,14 @@ int clientsocket(char * addrs, int portnum)
 			fwrite(rbuf, str_len, 1, fp);
 		}
 		else {
-			strcat_s(temp, rbuf);
+			printf("%s\n", rbuf);
+			strncat(temp,rbuf,str_len);
 		}
+		//temp = (char*)realloc(temp, bufsize + (bufsize*sizeof(char)));
 		str_len = 0;
 	}
 	if (cases == 2) {
+		if(fp!=NULL)
 		fclose(fp); //파일 닫아주기
 		printf("jpg case 메모리 해제\n");
 		//delete[]query_jpg_real;
@@ -533,7 +545,7 @@ int clientsocket(char * addrs, int portnum)
 	else {
 		closesocket(sockfd);
 		parser(temp);
-		memset(temp, 0x00, 1000000);
+		memset(temp, 0x00, TEMP_SIZE);
 		printf("total bufsize : %d\n", bufsize);
 		progressbar(100);
 		bufsize = 0;

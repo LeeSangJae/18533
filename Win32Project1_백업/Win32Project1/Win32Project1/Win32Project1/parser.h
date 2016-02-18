@@ -2,15 +2,16 @@
 #include "header.h"
 #include "hyperlink.h"
 
-char *get_temp;
-char *get_temp_body;
-int get_size_header, get_size_body;
-char *image_file_name;
-char *query_jpg_real;
+char *get_temp = NULL;
+char *get_temp_body = NULL;
+int get_size_header = 0, get_size_body = 0;
+char *image_file_name = NULL;
+char *query_jpg_real = NULL;
+
 
 void Search_header(string get_str)
 {
-	char * get_cast;
+	char * get_cast = NULL;
 	regex pattern("(<head>|<HEAD>)\(.*)\(</head>|</HEAD>)");
 	string str = get_str;
 	//string temps;
@@ -34,7 +35,7 @@ void Search_header(string get_str)
 
 void Search_body(string get_str)
 {
-	char * get_cast;
+	char * get_cast = NULL;
 	regex pattern("(<body>|<BODY>)\(.*)\(</body>|</BODY>)");
 	string str = get_str;
 	//string temps;
@@ -59,19 +60,30 @@ void Search_body(string get_str)
 
 void Search_jpg_image(string get_str)
 {
-	char * get_cast;
-	char * get_cast_type; //이미지 타입
-	char query_jpg[100];
-	//regex pattern("\"\(.*)\(jpg|bmp|gif|jpeg)\(\"></br>)"); //일단 재민님 파서
-	regex pattern("\"\(.*)\(bmp)"); //효근님꺼에서 bmp만 받아오기
-	//regex pattern("\"\(.*)\(jpg|bmp|gif|jpeg)"); //오리지날 파서 (이미지 1개일 때)
+	char * get_cast = NULL;
+	char * get_cast_type = NULL; //이미지 타입
+	char query_jpg[100] = { NULL };
+	char * pattern_str = NULL;
+	if (temp_port2 == 8090)//재민님
+		pattern_str = "\"\(.*)\(jpg|bmp|gif|jpeg)\(\"></br>)";
+	else if (temp_port2 = 8677)//효근님꺼에서 bmp만 받아오기;
+		pattern_str = "\"\(.*)\(bmp)"; 
+	else if (temp_port2 = 8979) //경미님
+		pattern_str = "\"\(.*)\(jpg|bmp|gif|jpeg)\">";
 
+	if (pattern_str == NULL)
+		return;
+
+	cout << "찾는 문자열 : " << get_str << endl;
+
+	regex pattern(pattern_str); // 재민님 패턴
+	//regex pattern("\"\(.*)\(jpg|bmp|gif|jpeg)"); //오리지날 파서 (이미지 1개일 때)
 	//regex pattern("\"\(.*)\(jpg|bmp|gif|jpeg)\>"); //이미지 파일을 찾음
 	string str = get_str;
 	//string temps;
 	smatch m;
-	char get_jpg[20];
-	char jpg_name[20];
+	char get_jpg[20] = { NULL };
+	char jpg_name[20] = { NULL };
 	int k = 0;
 	if (regex_search(str, m, pattern))
 	{
@@ -118,13 +130,28 @@ void Search_jpg_image(string get_str)
 	}
 }
 
-void input_valid_check(string get_str) /* 주소 입력 체크 */
+int input_valid_check(string get_str) /* 주소 입력 체크 */
 {
-	char * domain_first;
-	char * domain_middle;
-	char * domain_third;
-	char * for_dns; //dns를 위해
-	char * temp_addr;
+	if (hwndStatic != NULL) {
+		DestroyWindow(hwndStatic);
+		hwndStatic = NULL;
+		temp_port2 = 0;
+		hypertext = "";
+		get_temp = NULL;
+		get_temp_body = NULL;
+		totalresult = NULL;
+		delete[] get_temp;
+		delete[] get_temp_body;
+		delete[] totalresult;
+	}
+	image_file_name = NULL;
+	
+	char * domain_first = NULL;
+	char * domain_middle = NULL;
+	char * domain_third = NULL;
+	char * for_dns = NULL; //dns를 위해
+	char * temp_addr = NULL;
+
 	regex pattern("(www|http://www|http://)\(.*)\(com|co.kr|org|net)");
 	string str = get_str;
 	temp_addr = const_cast<char*>(get_str.c_str());
@@ -166,10 +193,24 @@ void input_valid_check(string get_str) /* 주소 입력 체크 */
 			delete[] for_dns;
 		}
 	}
-	else {
+	else { //프로토콜과 주소를 토큰으로 분리
+		if (strstr(temp_addr, ":1") || strstr(temp_addr, ":2") || strstr(temp_addr, ":3") || strstr(temp_addr, ":4") || strstr(temp_addr, ":5") || strstr(temp_addr, ":6")||
+			strstr(temp_addr, ":7") || strstr(temp_addr, ":8")|| strstr(temp_addr, ":9"))
+		{
+		strtok(temp_addr, ":");
+		strcpy(temp_addr2, temp_addr);
+		char * temp_PORT = strtok(NULL, ":");
+		int temp_port = atoi(temp_PORT);
+		temp_port2 = temp_port;
 		cases = 1;
-		clientsocket(temp_addr, PORT_NUM);
+		clientsocket(temp_addr2, temp_port2);
+		}
+		else {
+			MessageBox(NULL, "포트번호를 입력하세요!", "에러!", MB_ICONINFORMATION);
+			return -1; //에러
+		}
 	}
+	return 1;
 }
 
 string replaceAll(const string &str, const string &pattern, const string &replace)
@@ -187,7 +228,7 @@ string replaceAll(const string &str, const string &pattern, const string &replac
 	return result;
 }
 
-
+//문제는 파싱이다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 void parser(string before_parser)
 {
 	//파서에서 먼저 개행이랑 캐리지 리턴 모두 다 없애줌
@@ -196,8 +237,10 @@ void parser(string before_parser)
 	result = replaceAll(result, "\r\n", "");
 	Search_header(result);
 	Search_body(result);
-	totalresult = new char[get_size_header + get_size_body + 100];
-	sprintf(totalresult, "[ HEAD CONTENT ]\n%s\n\n [BODY CONTENT ]\n%s", get_temp, get_temp_body);
+	char *headcontent = "[ HEAD CONTENT ]\n";
+	char *bodycontent = "\n\n [BODY CONTENT ]\n";
+	totalresult = new char[get_size_header + get_size_body + strlen(headcontent) + strlen(bodycontent)];
+	sprintf(totalresult, "%s%s%s%s", headcontent,get_temp,bodycontent, get_temp_body);
 	if (cases == 1) { //일단 CGI 일때만 이미지 파일 요청
 		Search_jpg_image(result); //gif 가 네이버에 있기 때문에 에러가 나는 것임
 	}

@@ -32,8 +32,8 @@ void favorite_page(char * page, int len, HWND hWnd) {
 	FILE *fp = fopen("favorite_page.txt", "a");
 	
 	//fseek(fp, 0, SEEK_END);
-	char buf[6];
-	itoa(visit_pagenumber, buf, 10);
+	char buf[6] = { 0 };
+	itoa(visit_pagenumber, buf, 6);
 	fwrite(page, len, 1, fp);
 	fwrite("@", 1, 1, fp);
 	fwrite(buf, 5, 1, fp);
@@ -50,7 +50,7 @@ void favorite_page(char * page, int len, HWND hWnd) {
 }
 
 void favorite_page_create(HWND hWnd) {
-	FILE *fp2;
+	FILE *fp2 = NULL;
 
 	if (!(fp2 = fopen("favorite_page.txt", "r"))) {
 		return;
@@ -66,7 +66,7 @@ void favorite_page_create(HWND hWnd) {
 		fseek(fp2, 0, SEEK_SET); // 오프셋 위치 다시 처음으로 설정
 
 				
-		char strTemp[255];
+		char strTemp[255] = { 0 };
 		while (!feof(fp2))
 		{
 			memset(strTemp, 0x00, sizeof(strTemp));
@@ -86,13 +86,13 @@ void favorite_page_create(HWND hWnd) {
 
 void favorite_clicked(int search_id)
 {
-	FILE *fp2;
+	FILE *fp2 = NULL;
 
 	if (!(fp2 = fopen("favorite_page.txt", "r"))) {
 		return;
 	}
 
-	char buf[6];
+	char buf[6] = { 0 };
 	itoa(search_id, buf, 10);
 
 	if (fp2 != NULL) {
@@ -104,8 +104,8 @@ void favorite_clicked(int search_id)
 		//memset(totalresult, 0x00, sizeof(totalresult)); //메모리 초기화 안하면 쓰레기값 찍힌다.
 		fseek(fp2, 0, SEEK_SET); // 오프셋 위치 다시 처음으로 설정
 
-
-		char strTemp[255];
+		
+		char strTemp[50] = { 0 };
 		while (!feof(fp2))
 		{
 			memset(strTemp, 0x00, sizeof(strTemp));
@@ -113,7 +113,7 @@ void favorite_clicked(int search_id)
 			if (strlen(strTemp) > 0) {
 				strtok(strTemp, "@");
 				if (!strncmp(buf, (strtok(NULL, "@")), 5)) {
-					printf("%s\n", strTemp);
+					printf("즐겨찾기 요청중인 주소 : %s\n", strTemp);
 					input_valid_check(strTemp); // 주소체크하고 dns 실행할지말지 결정
 					InvalidateRect(Main_hWnd, NULL, WM_ERASEBKGND);
 					UpdateWindow(Main_hWnd);

@@ -1,0 +1,156 @@
+﻿  test.cpp
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\header.h(57): error C2440: '초기화 중': 'const char [20]'에서 'LPCWSTR'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\header.h(57): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\header.h(191): error C2664: 'INT WSAAddressToStringA(LPSOCKADDR,DWORD,LPWSAPROTOCOL_INFOA,LPSTR,LPDWORD)': 인수 4을(를) 'wchar_t [46]'에서 'LPSTR'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\header.h(191): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\header.h(195): warning C4477: 'printf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'wchar_t *'입니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\header.h(195): note: 서식 문자열에서 '%ls'을(를) 사용하는 것이 좋습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\header.h(195): note: 서식 문자열에서 '%lls'을(를) 사용하는 것이 좋습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\header.h(195): note: 서식 문자열에서 '%Ls'을(를) 사용하는 것이 좋습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\header.h(195): note: 서식 문자열에서 '%ws'을(를) 사용하는 것이 좋습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\hyperlink.h(16): error C2664: 'HWND CreateWindowExA(DWORD,LPCSTR,LPCSTR,DWORD,int,int,int,int,HWND,HMENU,HINSTANCE,LPVOID)': 인수 3을(를) 'wchar_t *'에서 'LPCSTR'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\hyperlink.h(16): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\hyperlink.h(18): error C2440: '=': 'const char [26]'에서 'wchar_t *'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\hyperlink.h(18): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\hyperlink.h(26): error C2664: 'HWND CreateWindowExA(DWORD,LPCSTR,LPCSTR,DWORD,int,int,int,int,HWND,HMENU,HINSTANCE,LPVOID)': 인수 3을(를) 'wchar_t *'에서 'LPCSTR'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\hyperlink.h(26): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\hyperlink.h(28): error C2440: '=': 'const char [27]'에서 'wchar_t *'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\hyperlink.h(28): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(11): warning C4129: '(': 문자 이스케이프 시퀀스를 인식할 수 없습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(29): error C2440: 'return': 'const char [12]'에서 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(29): note: 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(36): warning C4129: '(': 문자 이스케이프 시퀀스를 인식할 수 없습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(54): error C2440: 'return': 'const char [12]'에서 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(54): note: 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(67): warning C4129: '(': 문자 이스케이프 시퀀스를 인식할 수 없습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(69): warning C4129: '(': 문자 이스케이프 시퀀스를 인식할 수 없습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(71): warning C4129: '(': 문자 이스케이프 시퀀스를 인식할 수 없습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(101): error C2664: 'int wsprintfA(LPSTR,LPCSTR,...)': 인수 1을(를) 'wchar_t [20]'에서 'LPSTR'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(101): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(102): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(104): warning C4244: '인수': 'wchar_t'에서 'CHAR'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(108): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(111): warning C4244: '=': 'wchar_t'에서 'char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(118): error C2664: 'int wsprintfA(LPSTR,LPCSTR,...)': 인수 1을(를) 'wchar_t [100]'에서 'LPSTR'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(118): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(143): error C2440: '=': 'const char [1]'에서 'wchar_t *'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(143): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(181): error C2665: 'wcstok': 2개의 오버로드 중 모든 인수 형식을 변환할 수 있는 오버로드가 없습니다.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_wstring.h(254): note: 'wchar_t *wcstok(wchar_t *,const wchar_t *) throw()'일 수 있습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(181): note: 인수 목록 '(int, const char [2])'을(를) 일치시키는 동안
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(201): warning C4129: '(': 문자 이스케이프 시퀀스를 인식할 수 없습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(204): warning C4129: '(': 문자 이스케이프 시퀀스를 인식할 수 없습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(314): error C2440: '초기화 중': 'const char [18]'에서 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(314): note: 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(315): error C2440: '초기화 중': 'const char [20]'에서 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\parser.h(315): note: 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(16): error C2440: '초기화 중': 'const char [20]'에서 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(16): note: 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::_Vb_iterator<_Alloc> std::operator +(_Alloc::difference_type,std::_Vb_iterator<_Alloc>)': 'std::_Vb_iterator<_Alloc>'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\vector(2332): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::_Vb_const_iterator<_Alloc> std::operator +(_Alloc::difference_type,std::_Vb_const_iterator<_Alloc>)': 'std::_Vb_const_iterator<_Alloc>'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\vector(2225): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::_Vector_iterator<_Myvec> std::operator +(_Vector_iterator<_Myvec>::difference_type,std::_Vector_iterator<_Myvec>)': 'std::_Vector_iterator<_Myvec>'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\vector(410): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::_Vector_const_iterator<_Myvec> std::operator +(_Vector_const_iterator<_Myvec>::difference_type,std::_Vector_const_iterator<_Myvec>)': 'std::_Vector_const_iterator<_Myvec>'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\vector(279): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2782: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const _Elem)': 템플릿 매개 변수 '_Elem'이(가) 모호합니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2415): note: 'std::operator +' 선언을 참조하십시오.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): note: 'const char *'일 수 있습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): note: 또는      'wchar_t'
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const _Elem)': 'const _Elem'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2415): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2782: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const _Elem *)': 템플릿 매개 변수 '_Elem'이(가) 모호합니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2405): note: 'std::operator +' 선언을 참조하십시오.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): note: 'char'일 수 있습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): note: 또는      'wchar_t'
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const _Elem *)': 'const _Elem *'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2405): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem,std::basic_string<_Elem,_Traits,_Alloc> &&)': 'std::basic_string<_Elem,_Traits,_Alloc> &&'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2393): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem *,std::basic_string<_Elem,_Traits,_Alloc> &&)': 'const _Elem *'의 템플릿 인수를 'const std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2383): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,std::basic_string<_Elem,_Traits,_Alloc> &&)': 'std::basic_string<_Elem,_Traits,_Alloc> &&'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2369): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const std::basic_string<_Elem,_Traits,_Alloc> &)': 'const std::basic_string<_Elem,_Traits,_Alloc> &'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2359): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,std::basic_string<_Elem,_Traits,_Alloc> &&)': 'std::basic_string<_Elem,_Traits,_Alloc> &&'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2349): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2782: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': 템플릿 매개 변수 '_Elem'이(가) 모호합니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2335): note: 'std::operator +' 선언을 참조하십시오.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): note: 'const char *'일 수 있습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): note: 또는      'wchar_t'
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': 'const _Elem'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2335): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2782: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem *)': 템플릿 매개 변수 '_Elem'이(가) 모호합니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2321): note: 'std::operator +' 선언을 참조하십시오.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): note: 'char'일 수 있습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): note: 또는      'wchar_t'
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem *)': 'const _Elem *'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2321): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem,const std::basic_string<_Elem,_Traits,_Alloc> &)': 'const std::basic_string<_Elem,_Traits,_Alloc> &'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2307): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem *,const std::basic_string<_Elem,_Traits,_Alloc> &)': 'const _Elem *'의 템플릿 인수를 'const std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2293): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const std::basic_string<_Elem,_Traits,_Alloc> &)': 'const std::basic_string<_Elem,_Traits,_Alloc> &'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(2279): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::_String_iterator<_Mystr> std::operator +(_String_iterator<_Mystr>::difference_type,std::_String_iterator<_Mystr>)': 'std::_String_iterator<_Mystr>'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(417): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::_String_const_iterator<_Mystr> std::operator +(_String_const_iterator<_Mystr>::difference_type,std::_String_const_iterator<_Mystr>)': 'std::_String_const_iterator<_Mystr>'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xstring(285): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::move_iterator<_RanIt> std::operator +(_Diff,const std::move_iterator<_RanIt> &)': 'const std::move_iterator<_RanIt> &'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xutility(2064): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::_Array_iterator<_Ty,_Size> std::operator +(_Array_iterator<_Ty,_Size>::difference_type,std::_Array_iterator<_Ty,_Size>)': 'std::_Array_iterator<_Ty,_Size>'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xutility(1917): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::_Array_const_iterator<_Ty,_Size> std::operator +(_Array_const_iterator<_Ty,_Size>::difference_type,std::_Array_const_iterator<_Ty,_Size>)': 'std::_Array_const_iterator<_Ty,_Size>'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xutility(1781): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2784: 'std::reverse_iterator<_RanIt> std::operator +(reverse_iterator<_RanIt>::difference_type,const std::reverse_iterator<_RanIt> &)': 'const std::reverse_iterator<_RanIt> &'의 템플릿 인수를 'const char [2]'에서 추론할 수 없습니다.
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\xutility(1151): note: 'std::operator +' 선언을 참조하십시오.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(26): error C2676: 이항 '+': 'const std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'이(가) 이 연산자를 정의하지 않거나 미리 정의된 연산자에 허용되는 형식으로의 변환을 정의하지 않습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(65): error C2664: 'int wsprintfA(LPSTR,LPCSTR,...)': 인수 1을(를) 'wchar_t [100]'에서 'LPSTR'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(65): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(51): warning C4477: 'printf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'wchar_t *'입니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(51): note: 서식 문자열에서 '%ls'을(를) 사용하는 것이 좋습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(51): note: 서식 문자열에서 '%lls'을(를) 사용하는 것이 좋습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(51): note: 서식 문자열에서 '%Ls'을(를) 사용하는 것이 좋습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(51): note: 서식 문자열에서 '%ws'을(를) 사용하는 것이 좋습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(117): error C2664: 'int wsprintfA(LPSTR,LPCSTR,...)': 인수 1을(를) 'wchar_t *'에서 'LPSTR'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\visit_page.h(117): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(45): error C2664: 'BOOL AppendMenuA(HMENU,UINT,UINT_PTR,LPCSTR)': 인수 4을(를) 'wchar_t []'에서 'LPCSTR'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(45): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(23): warning C4477: 'printf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'wchar_t *'입니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(23): note: 서식 문자열에서 '%ls'을(를) 사용하는 것이 좋습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(23): note: 서식 문자열에서 '%lls'을(를) 사용하는 것이 좋습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(23): note: 서식 문자열에서 '%Ls'을(를) 사용하는 것이 좋습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(23): note: 서식 문자열에서 '%ws'을(를) 사용하는 것이 좋습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(71): error C2665: 'wcstok': 2개의 오버로드 중 모든 인수 형식을 변환할 수 있는 오버로드가 없습니다.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_wstring.h(254): note: 'wchar_t *wcstok(wchar_t *,const wchar_t *) throw()'일 수 있습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(71): note: 인수 목록 '(wchar_t [255], const char [2])'을(를) 일치시키는 동안
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(73): error C2664: 'BOOL AppendMenuA(HMENU,UINT,UINT_PTR,LPCSTR)': 인수 4을(를) 'wchar_t [255]'에서 'LPCSTR'(으)로 변환할 수 없습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(73): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(72): warning C4477: 'printf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'wchar_t *'입니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(72): note: 서식 문자열에서 '%ls'을(를) 사용하는 것이 좋습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(72): note: 서식 문자열에서 '%lls'을(를) 사용하는 것이 좋습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(72): note: 서식 문자열에서 '%Ls'을(를) 사용하는 것이 좋습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(72): note: 서식 문자열에서 '%ws'을(를) 사용하는 것이 좋습니다.
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(106): error C2665: 'wcstok': 2개의 오버로드 중 모든 인수 형식을 변환할 수 있는 오버로드가 없습니다.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_wstring.h(254): note: 'wchar_t *wcstok(wchar_t *,const wchar_t *) throw()'일 수 있습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(106): note: 인수 목록 '(wchar_t [50], const char [2])'을(를) 일치시키는 동안
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(107): error C2665: 'wcstok': 2개의 오버로드 중 모든 인수 형식을 변환할 수 있는 오버로드가 없습니다.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_wstring.h(254): note: 'wchar_t *wcstok(wchar_t *,const wchar_t *) throw()'일 수 있습니다.
+  c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(107): note: 인수 목록 '(int, const char [2])'을(를) 일치시키는 동안
+c:\users\23jae\desktop\백업\win32project1_백업\win32project1\win32project1\win32project1\favorite_page.h(107): error C2660: 'wcsncmp': 함수는 2개의 매개 변수를 사용하지 않습니다.
+test.cpp(9): error C2731: 'WinMain': 함수를 오버로드할 수 없습니다.
+  test.cpp(8): note: 'WinMain' 선언을 참조하십시오.
+test.cpp(27): error C2440: '=': 'LPCWSTR'에서 'LPCSTR'(으)로 변환할 수 없습니다.
+  test.cpp(27): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+test.cpp(31): error C2664: 'HWND CreateWindowExA(DWORD,LPCSTR,LPCSTR,DWORD,int,int,int,int,HWND,HMENU,HINSTANCE,LPVOID)': 인수 2을(를) 'LPCWSTR'에서 'LPCSTR'(으)로 변환할 수 없습니다.
+  test.cpp(31): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+test.cpp(225): error C2664: 'BOOL DeleteFileA(LPCSTR)': 인수 1을(를) 'wchar_t [100]'에서 'LPCSTR'(으)로 변환할 수 없습니다.
+  test.cpp(225): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+test.cpp(260): error C2664: 'int DrawTextA(HDC,LPCSTR,int,LPRECT,UINT)': 인수 2을(를) 'wchar_t *'에서 'LPCSTR'(으)로 변환할 수 없습니다.
+  test.cpp(260): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+test.cpp(263): error C2664: 'int DrawTextA(HDC,LPCSTR,int,LPRECT,UINT)': 인수 2을(를) 'wchar_t *'에서 'LPCSTR'(으)로 변환할 수 없습니다.
+  test.cpp(263): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.
+test.cpp(447): error C2440: '=': 'const char [71]'에서 'wchar_t *'(으)로 변환할 수 없습니다.
+  test.cpp(447): note: 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 함수 스타일 캐스트가 필요합니다.

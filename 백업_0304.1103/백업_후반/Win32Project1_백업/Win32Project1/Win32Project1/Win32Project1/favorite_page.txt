@@ -1,0 +1,2 @@
+daum.net@50001
+naver.com@50002

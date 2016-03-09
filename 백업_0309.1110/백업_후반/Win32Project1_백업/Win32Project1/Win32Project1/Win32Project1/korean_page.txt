@@ -1,0 +1,8 @@
+네이버/www.naver.com
+다음/www.daum.net
+구글/www.google.com
+넥슨/www.nexon.co.kr
+윤주현/www.bombyul.com
+이효근/52.192.132.151:8677
+조재민/52.192.132.151:8090
+

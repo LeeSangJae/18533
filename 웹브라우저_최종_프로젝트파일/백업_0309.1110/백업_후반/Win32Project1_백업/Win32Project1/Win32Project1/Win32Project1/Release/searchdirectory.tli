@@ -1,0 +1,36 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 14.00.23506.0 (209ab5d4).
+//
+// c:\users\23jae\desktop\웹브라우저_최종_프로젝트파일\백업_0309.1110\백업_후반\win32project1_백업\win32project1\win32project1\win32project1\release\searchdirectory.tli
+//
+// Wrapper implementations for Win32 type library C:\Users\23JAE\Desktop\aceproject\aceproject\SearchDirectory\SearchDirectory\bin\Debug\SearchDirectory.tlb
+// compiler-generated file created 03/21/16 at 14:13:07 - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface Interface_Charp wrapper method implementations
+//
+
+inline HRESULT Interface_Charp::DirSearch ( _bstr_t diskDir ) {
+    HRESULT _hr = raw_DirSearch(diskDir);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT Interface_Charp::initProcess ( ) {
+    HRESULT _hr = raw_initProcess();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT Interface_Charp::CreateLogFile ( _bstr_t fileName ) {
+    HRESULT _hr = raw_CreateLogFile(fileName);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT Interface_Charp::ThreadPoolCallback ( const _variant_t & threadContext ) {
+    HRESULT _hr = raw_ThreadPoolCallback(threadContext);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}

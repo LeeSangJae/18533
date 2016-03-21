@@ -1,0 +1,117 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 14.00.23506.0 (b5e7158f).
+//
+// c:\users\23jae\desktop\웹브라우저_최종_프로젝트파일\백업_0309.1110\백업_후반\win32project1_백업\win32project1\win32project1\win32project1\debug\searchdirectory.tlh
+//
+// C++ source equivalent of Win32 type library C:\Users\23JAE\Desktop\aceproject\aceproject\SearchDirectory\SearchDirectory\bin\Debug\SearchDirectory.tlb
+// compiler-generated file created 03/21/16 at 11:07:27 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("1c086f59-a168-43cb-9dca-1885cf7567f9"))
+/* LIBID */ __SearchDirectory;
+struct __declspec(uuid("a742a006-ece7-4bc1-ad7a-a09d61a82dd7"))
+/* dual interface */ ICShapSample;
+struct /* coclass */ ValueClass;
+struct /* coclass */ Program;
+struct /* coclass */ ThreadPool_set;
+struct __declspec(uuid("72c69268-f725-35fd-952a-e7d82af49d6c"))
+/* dual interface */ _ValueClass;
+struct __declspec(uuid("4aa7830f-846c-377d-b38a-37e5f0187270"))
+/* dual interface */ _ThreadPool_set;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(ICShapSample, __uuidof(ICShapSample));
+_COM_SMARTPTR_TYPEDEF(_ValueClass, __uuidof(_ValueClass));
+_COM_SMARTPTR_TYPEDEF(_ThreadPool_set, __uuidof(_ThreadPool_set));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("a742a006-ece7-4bc1-ad7a-a09d61a82dd7"))
+ICShapSample : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT DirSearch (
+        _bstr_t diskDir );
+    HRESULT initProcess ( );
+    HRESULT CreateLogFile (
+        _bstr_t fileName );
+    HRESULT ThreadPoolCallback (
+        const _variant_t & threadContext );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_DirSearch (
+        /*[in]*/ BSTR diskDir ) = 0;
+      virtual HRESULT __stdcall raw_initProcess ( ) = 0;
+      virtual HRESULT __stdcall raw_CreateLogFile (
+        /*[in]*/ BSTR fileName ) = 0;
+      virtual HRESULT __stdcall raw_ThreadPoolCallback (
+        /*[in]*/ VARIANT threadContext ) = 0;
+};
+
+struct __declspec(uuid("76dd8305-8bb5-35b3-8769-7518849ba68d"))
+ValueClass;
+    // [ default ] interface _ValueClass
+    // interface _Object
+
+struct __declspec(uuid("aa00f4d5-7ad4-4302-aab5-b1f7b728c5de"))
+Program;
+    // interface _Object
+    // [ default ] interface ICShapSample
+
+struct __declspec(uuid("dcc71082-1d0e-3345-84c5-84d699f4a330"))
+ThreadPool_set;
+    // [ default ] interface _ThreadPool_set
+    // interface _Object
+
+struct __declspec(uuid("72c69268-f725-35fd-952a-e7d82af49d6c"))
+_ValueClass : IDispatch
+{};
+
+struct __declspec(uuid("4aa7830f-846c-377d-b38a-37e5f0187270"))
+_ThreadPool_set : IDispatch
+{};
+
+//
+// Named GUID constants initializations
+//
+
+extern "C" const GUID __declspec(selectany) LIBID_SearchDirectory =
+    {0x1c086f59,0xa168,0x43cb,{0x9d,0xca,0x18,0x85,0xcf,0x75,0x67,0xf9}};
+extern "C" const GUID __declspec(selectany) IID_ICShapSample =
+    {0xa742a006,0xece7,0x4bc1,{0xad,0x7a,0xa0,0x9d,0x61,0xa8,0x2d,0xd7}};
+extern "C" const GUID __declspec(selectany) CLSID_ValueClass =
+    {0x76dd8305,0x8bb5,0x35b3,{0x87,0x69,0x75,0x18,0x84,0x9b,0xa6,0x8d}};
+extern "C" const GUID __declspec(selectany) CLSID_Program =
+    {0xaa00f4d5,0x7ad4,0x4302,{0xaa,0xb5,0xb1,0xf7,0xb7,0x28,0xc5,0xde}};
+extern "C" const GUID __declspec(selectany) CLSID_ThreadPool_set =
+    {0xdcc71082,0x1d0e,0x3345,{0x84,0xc5,0x84,0xd6,0x99,0xf4,0xa3,0x30}};
+extern "C" const GUID __declspec(selectany) IID__ValueClass =
+    {0x72c69268,0xf725,0x35fd,{0x95,0x2a,0xe7,0xd8,0x2a,0xf4,0x9d,0x6c}};
+extern "C" const GUID __declspec(selectany) IID__ThreadPool_set =
+    {0x4aa7830f,0x846c,0x377d,{0xb3,0x8a,0x37,0xe5,0xf0,0x18,0x72,0x70}};
+
+//
+// Wrapper method implementations
+//
+
+#include "c:\users\23jae\desktop\웹브라우저_최종_프로젝트파일\백업_0309.1110\백업_후반\win32project1_백업\win32project1\win32project1\win32project1\debug\searchdirectory.tli"
+
+#pragma pack(pop)
